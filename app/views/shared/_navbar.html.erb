@@ -1,0 +1,50 @@
+<nav class="absolute top-0 left-0 w-full bg-gradient-to-r from-orange-400 to-orange-600 text-white z-50">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-16">
+      <!-- Logo / Brand -->
+      <div class="flex items-center">
+        <span class="font-bold text-xl">MyApp</span>
+      </div>
+
+      <!-- Mobile Toggle (Checkbox) -->
+      <input type="checkbox" id="mobile-toggle" class="peer hidden">
+
+      <!-- Hamburger Button -->
+      <label for="mobile-toggle" class="cursor-pointer md:hidden block">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor"
+             viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </label>
+
+      <!-- Desktop Links -->
+      <div class="hidden md:flex space-x-4 items-center">
+        <% if user_signed_in? %>
+          <%= button_to destroy_user_session_path, method: :delete, class: "hover:bg-orange-500 p-2 rounded-full", form: { class: "inline" } do %>
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
+                 viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M5.121 17.804A9 9 0 1112 21v-2a7 7 0 10-6.879-5.196z" />
+            </svg>
+          <% end %>
+        <% else %>
+          <%= link_to "Sign In", new_user_session_path, class: "hover:bg-orange-500 px-4 py-2 rounded" %>
+          <%= link_to "Sign Up", new_user_registration_path, class: "hover:bg-orange-500 px-4 py-2 rounded" %>
+        <% end %>
+      </div>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div class="peer-checked:block hidden md:hidden mt-2 space-y-2 pb-4">
+      <% if user_signed_in? %>
+        <%= button_to destroy_user_session_path, method: :delete, class: "block text-left px-4 py-2 hover:bg-orange-500 w-full", form: { class: "inline" } do %>
+          Logout
+        <% end %>
+      <% else %>
+        <%= link_to "Sign In", new_user_session_path, class: "block px-4 py-2 hover:bg-orange-500" %>
+        <%= link_to "Sign Up", new_user_registration_path, class: "block px-4 py-2 hover:bg-orange-500" %>
+      <% end %>
+    </div>
+  </div>
+</nav>

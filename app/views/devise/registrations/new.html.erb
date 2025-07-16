@@ -1,0 +1,75 @@
+<div class="min-h-screen flex items-center justify-center px-4">
+  <div class="w-full max-w-6xl bg-white shadow-2xl rounded-2xl overflow-hidden flex flex-col md:flex-row">
+
+    <!-- Left Side -->
+    <div class="hidden md:flex md:w-1/2 items-center justify-center bg-[#1A1C29] p-10 text-white relative">
+      <div>
+        <h2 class="text-3xl font-bold leading-snug mb-4">Start your<br>journey. <span class="text-orange-400">Today.</span></h2>
+        <a href="#" class="text-orange-400 underline text-sm">Learn More</a>
+      </div>
+      <!-- Optional background image if you want -->
+    </div>
+
+    <!-- Right Side (Form) -->
+    <div class="w-full md:w-1/2 p-10 bg-white">
+      <div class="mb-6 flex justify-between items-center">
+        <h2 class="text-xl font-semibold text-gray-800">Sign Up</h2>
+        <p class="text-sm text-gray-400">
+          <span class="text-gray-600">or</span>
+          <a href="<%= new_user_session_path %>" class="text-orange-500 font-medium hover:underline">Sign In</a>
+        </p>
+      </div>
+
+      <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { class: "space-y-5" }) do |f| %>
+        <%= render "devise/shared/error_messages", resource: resource %>
+
+        <div>
+          <%= f.label :first_name, class: "block text-sm font-medium text-gray-700" %>
+          <%= f.text_field :first_name, class: "mt-1 w-full border border-gray-300 rounded-md px-3 py-2 focus:ring-orange-500 focus:border-orange-500" %>
+        </div>
+
+        <div>
+          <%= f.label :last_name, class: "block text-sm font-medium text-gray-700" %>
+          <%= f.text_field :last_name, class: "mt-1 w-full border border-gray-300 rounded-md px-3 py-2 focus:ring-orange-500 focus:border-orange-500" %>
+        </div>
+
+        <div>
+          <%= f.label :username, class: "block text-sm font-medium text-gray-700" %>
+          <%= f.text_field :username, class: "mt-1 w-full border border-gray-300 rounded-md px-3 py-2 focus:ring-orange-500 focus:border-orange-500" %>
+        </div>
+
+        <div>
+          <%= f.label :email, class: "block text-sm font-medium text-gray-700" %>
+          <%= f.email_field :email, class: "mt-1 w-full border border-gray-300 rounded-md px-3 py-2 focus:ring-orange-500 focus:border-orange-500" %>
+        </div>
+
+        <div>
+          <%= f.label :password, class: "block text-sm font-medium text-gray-700" %>
+          <% if @minimum_password_length %>
+            <small class="text-xs text-gray-500">(<%= @minimum_password_length %> characters minimum)</small>
+          <% end %>
+          <%= f.password_field :password, class: "mt-1 w-full border border-gray-300 rounded-md px-3 py-2 focus:ring-orange-500 focus:border-orange-500" %>
+        </div>
+
+        <div>
+          <%= f.label :password_confirmation, class: "block text-sm font-medium text-gray-700" %>
+          <%= f.password_field :password_confirmation, class: "mt-1 w-full border border-gray-300 rounded-md px-3 py-2 focus:ring-orange-500 focus:border-orange-500" %>
+        </div>
+
+        <div class="flex items-center space-x-2">
+          <input type="checkbox" required class="accent-orange-500" id="terms">
+          <label for="terms" class="text-sm text-gray-600">I agree all statements in <a href="#" class="text-orange-500 underline">terms of service</a></label>
+        </div>
+
+        <div class="pt-4">
+          <%= f.submit "Register", class: "w-full py-2 px-4 bg-gradient-to-r from-orange-500 to-orange-600 text-white font-semibold rounded-md hover:from-orange-600 hover:to-orange-700 shadow-md" %>
+        </div>
+      <% end %>
+
+      <div class="mt-6 text-center text-sm text-gray-500">
+        <%= render "devise/shared/links" %>
+      </div>
+    </div>
+
+  </div>
+</div>
