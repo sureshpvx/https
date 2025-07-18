@@ -66,6 +66,22 @@
         </div>
       <% end %>
 
+      <div class="pt-4">
+        <%= button_to user_google_oauth2_omniauth_authorize_path,
+                      method: :post,
+                      data: { turbo: false },
+                      class: "w-full flex items-center justify-center gap-2 px-4 py-2 border border-gray-300 text-gray-700 rounded-md bg-white hover:bg-gray-50 shadow-sm" do %>
+          <svg class="w-5 h-5" viewBox="0 0 48 48">
+            <path fill="#EA4335" d="M24 9.5c3.54 0 6.68 1.23 9.15 3.27l6.83-6.83C35.82 2.45 30.3 0 24 0 14.82 0 6.94 5.8 3.27 14.02l7.9 6.14C12.8 13.4 17.9 9.5 24 9.5z"/>
+            <path fill="#4285F4" d="M46.27 24.56c0-1.54-.14-3.04-.4-4.48H24v8.48h12.5c-.55 2.98-2.25 5.5-4.78 7.2l7.5 5.84c4.38-4.02 6.9-9.92 6.9-17.04z"/>
+            <path fill="#FBBC05" d="M10.72 28.16a14.57 14.57 0 0 1 0-8.32L2.82 13.7a24.027 24.027 0 0 0 0 20.6l7.9-6.14z"/>
+            <path fill="#34A853" d="M24 48c6.3 0 11.62-2.08 15.5-5.64l-7.5-5.84c-2.1 1.4-4.8 2.24-8 2.24-6.1 0-11.2-3.9-13.1-9.28l-7.9 6.14C6.94 42.2 14.82 48 24 48z"/>
+            <path fill="none" d="M0 0h48v48H0z"/>
+          </svg>
+          <span>Sign in with Google</span>
+        <% end %>
+      </div>
+
       <div class="mt-6 text-center text-sm text-gray-500">
         <%= render "devise/shared/links" %>
       </div>
